@@ -93,7 +93,7 @@ public class NettyConfig {
 		ServerBootstrap b = new ServerBootstrap();
 		b.group(bossGroup(), workerGroup())
 				 .channel(NioServerSocketChannel.class)
-				 .handler(nettyLoggingHandler())
+			//	 .handler(nettyLoggingHandler())
 				 .childHandler(nettyChildHandler);
 		
 		Map<ChannelOption<?>, Object> tcpChannelOptions = tcpChannelOptions();

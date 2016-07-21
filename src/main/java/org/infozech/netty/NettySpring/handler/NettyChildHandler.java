@@ -29,6 +29,7 @@ public class NettyChildHandler extends ChannelInitializer<SocketChannel> {
 	protected void initChannel(SocketChannel ch) throws Exception {
 		
 		ChannelPipeline p = ch.pipeline();
+		logger.info("*************************************************************");
 		System.out.println("New Client connected:" + ch.localAddress());
 		logger.info("Connected to client" + ch.localAddress());
 		p.addLast(nettyServerHandler);

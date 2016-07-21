@@ -44,19 +44,28 @@ public class TcpServer {
 	}
 
 	@PostConstruct
-	public void start() throws Exception{
+	public void start() {
+		try{
 		
-		for(ChannelFuture f : futures){
-			f.sync();
-			
+			for(ChannelFuture f : futures){
+				f.sync();
+			}
 		}
+		catch (Exception e) {
+			e.getMessage();
+		}
+		
 	}
 	
 	@PreDestroy
-	public void stop() throws Exception{
-		
-		for(ChannelFuture f:futures){
-			f.sync().channel().closeFuture();
+	public void stop(){
+		try{
+			for(ChannelFuture f:futures){
+				f.sync().channel().closeFuture();
+			}
+		}
+		catch(Exception e){
+			e.getMessage();
 		}
 	}
 }
