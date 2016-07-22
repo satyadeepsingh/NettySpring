@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.infozech.netty.NettySpring.logger.DataLogWriter;
+import org.infozech.netty.NettySpring.model.BytesDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +21,17 @@ import io.netty.channel.ChannelHandler.Sharable;
 @Qualifier("serverHandler")
 @Sharable
 public class NettyServerHandler implements ChannelInboundHandler {
+	
+	@Autowired
+	@Qualifier("bytesDao")
+	BytesDao bytesDao;
+	
+	@Autowired
+	@Qualifier("dataLogWriter")
+	DataLogWriter dataLogWriter;
 
+	List<Byte> bytelist = new ArrayList<Byte>();
+	
 	private static final Logger logger = Logger.getLogger(NettyServerHandler.class);
 	
 	public void handlerAdded(ChannelHandlerContext arg0) throws Exception {
@@ -27,7 +40,7 @@ public class NettyServerHandler implements ChannelInboundHandler {
 	}
 
 	public void handlerRemoved(ChannelHandlerContext arg0) throws Exception {
-		// TODO Auto-generated method stub
+		
 
 	}
 
@@ -37,8 +50,7 @@ public class NettyServerHandler implements ChannelInboundHandler {
 	}
 
 	public void channelInactive(ChannelHandlerContext arg0) throws Exception {
-		// TODO Auto-generated method stub
-
+		dataLogWriter.logWriter();
 	}
 
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -46,16 +58,16 @@ public class NettyServerHandler implements ChannelInboundHandler {
 		
 		byte[] b = new byte[in.capacity()];
 		
-		List<Byte> bytelist = new ArrayList<Byte>();
+		
 		
 		for (int i = 0; i < in.capacity(); i ++) {
 		      b[i] = in.getByte(i);
 		      System.out.printf(String.format("%02x", b[i]));
-		      logger.info(b[i]);
+		    //  logger.info(b[i]);
 		      bytelist.add(b[i]);
 		 }
 		
-		// bytesdao.setBytelist(bytelist);
+		bytesDao.setByteList(bytelist); 
 		 /*
 		 List<Byte> newbytelist = bytesdao.getBytelist();
 		 for(byte bytes:newbytelist){
@@ -67,7 +79,7 @@ public class NettyServerHandler implements ChannelInboundHandler {
 
 	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 		
-		ctx.close();
+		//ctx.close();
 
 	}
 
@@ -77,7 +89,7 @@ public class NettyServerHandler implements ChannelInboundHandler {
 	}
 
 	public void channelUnregistered(ChannelHandlerContext arg0) throws Exception {
-		// TODO Auto-generated method stub
+		
 
 	}
 

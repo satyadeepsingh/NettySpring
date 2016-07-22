@@ -1,5 +1,6 @@
 package org.infozech.netty.NettySpring.cfg;
 
+import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +8,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.infozech.netty.NettySpring.handler.NettyChildHandler;
+import org.infozech.netty.NettySpring.logger.DataLogWriter;
+import org.infozech.netty.NettySpring.model.BytesDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -154,5 +157,15 @@ public class NettyConfig {
 	public LoggingHandler nettyLoggingHandler(){
 		
 		return new LoggingHandler(LogLevel.INFO);
+	}
+	
+	@Bean(name="bytesDao")
+	public BytesDao getBytesDao(){
+		return new BytesDao();
+	}
+	
+	@Bean(name="dataLogWriter")
+	public DataLogWriter getDataLogWriter(){
+		return new DataLogWriter();
 	}
 }
