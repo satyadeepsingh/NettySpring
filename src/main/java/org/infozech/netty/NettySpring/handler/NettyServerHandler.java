@@ -33,7 +33,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	DataLogWriter dataLogWriter;
 
 	private List<String> bytelist; 
-	private StringBuilder sb;
+	
 	
 	private static final Logger logger = Logger.getLogger(NettyServerHandler.class);
 	
@@ -62,14 +62,15 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 		ByteBuf in = Unpooled.copiedBuffer((ByteBuf) msg);
 		
 		byte[] b = new byte[in.capacity()];
-		sb = new StringBuilder();
+		
 		
 		
 		for (int i = 0; i < in.capacity(); i ++) {
+			StringBuilder sb =  new StringBuilder();
 		      b[i] = in.getByte(i);
-		  //    sb.append(String.format("%02x", b[i]));
+		      sb.append(String.format("%02x", b[i]));
 		      System.out.printf(String.format("%02x", b[i]));
-		      bytelist.add(String.format("%02x", b[i]));
+		      bytelist.add(sb.toString());
 		 //  logger.info(b[i]);
 		   
 		 }
