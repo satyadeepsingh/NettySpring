@@ -2,6 +2,7 @@ package org.infozech.netty.NettySpring.model;
 
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,7 +14,7 @@ public class BytesDao {
 
 	private InetSocketAddress SocketAddress = null;
 	
-	private List<Byte> byteList = new ArrayList<Byte>();
+	private List<String> byteList = Collections.synchronizedList(new ArrayList<String>());
 
 	public InetSocketAddress getSocketAddress() {
 		return SocketAddress;
@@ -23,11 +24,11 @@ public class BytesDao {
 		SocketAddress = socketAddress;
 	}
 
-	public List<Byte> getByteList() {
+	public List<String> getByteList() {
 		return byteList;
 	}
 
-	public void setByteList(List<Byte> byteList) {
+	public void setByteList(List<String> byteList) {
 		this.byteList = byteList;
 	}
 	

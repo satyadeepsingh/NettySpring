@@ -17,7 +17,7 @@ public class DataLogWriter {
 	private static final Logger logger = Logger.getLogger(DataLogWriter.class);
 	public void logWriter(){
 		logger.info("Data from "+ bytesDao.getSocketAddress()+ " client: "+" *******  " + "Data: " 
-				+ bytesDao.getByteList() );
+				+ bytesDao.getByteList() + "\n" + "Size: " + bytesDao.getByteList().size());
 		}
 
 }

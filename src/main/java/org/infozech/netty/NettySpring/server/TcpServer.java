@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,15 +17,17 @@ import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 
 @Service
-@PropertySource("classpath:netty-server.properties")
+@PropertySource("netty-server.properties")
 public class TcpServer {
 	
 	@Autowired
 	@Qualifier("serverBootstrap")
 	private ServerBootstrap b;
 	
-	@Autowired
-	@Qualifier("tcpChannelFutures")
+	//This was originally coded in spring 4, below autowiring is  Not Valid in Spring 3 , So changing to @Resource  
+	/*@Autowired
+	@Qualifier("tcpChannelFutures")*/
+	@Resource(name = "tcpChannelFutures")
 	private List<ChannelFuture> futures;
 		
 	public ServerBootstrap getB() {
@@ -38,7 +41,7 @@ public class TcpServer {
 	public List<ChannelFuture> getFutures() {
 		return futures;
 	}
-
+	
 	public void setFutures(List<ChannelFuture> futures) {
 		this.futures = futures;
 	}

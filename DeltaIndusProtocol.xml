@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Delta-Indus-Data>
+
+	<initialOfString>
+		<startOfPacket>
+			<data-type>STRING</data-type>
+			<size>2</size>
+		</startOfPacket>
+		
+		<id-Fault-Periodic>
+			<data-type>ASCII</data-type>
+			<size>1</size>
+		</id-Fault-Periodic>
+		
+		<comm-mode>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>1</size>
+		</comm-mode>
+			
+		<software-version>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</software-version>
+		
+		<protocol-version>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>1</size>
+		</protocol-version>
+		
+		<IIPMS-Serial-Number>
+			<data-type>ALPHA-NUMERIC</data-type>
+			<size>20</size>
+		</IIPMS-Serial-Number>
+		
+		<noOfBytes>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</noOfBytes>
+		
+		<site-id>
+			<data-type>ALPHA-NUMERIC</data-type>
+			<size>10</size>
+		</site-id>
+		
+		<date>
+			<data-type>NUMERIC</data-type>
+			<size>2</size>
+		</date>
+		
+		<hours>
+			<data-type>NUMERIC</data-type>
+			<size>2</size>
+		</hours>
+		
+		<minutes>
+			<data-type>NUMERIC</data-type>
+			<size>2</size>
+		</minutes>
+		
+		<seconds>
+			<data-type>NUMERIC</data-type>
+			<size>2</size>
+		</seconds>
+		
+		<month>
+			<data-type>NUMERIC</data-type>
+			<size>2</size>
+		</month>
+		
+		<year>
+			<data-type>NUMERIC</data-type>
+			<size>2</size>
+		</year>
+		
+	</initialOfString>
+	
+	<alarm-1>	
+		<alarm-string1>
+			<data-type>ALPHA-NUMERIC</data-type>
+			<size>6</size>
+		</alarm-string1>
+	</alarm-1>
+	
+	<status-1>	
+		<status-string1>
+			<data-type>NUMERIC</data-type>
+			<size>2</size>
+	    </status-string1>
+	</status-1>
+
+	<power>
+		<rectifier-power>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</rectifier-power>	
+		
+		<reserve-for-future>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</reserve-for-future>
+		
+		<battery-capacity>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</battery-capacity>
+		
+		<battery-current>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</battery-current>
+		
+		<rectifier-current>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</rectifier-current>
+		
+		<solar-current>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</solar-current>
+		
+		<wind-current>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</wind-current>
+	</power>
+	
+	<Measurement>
+		<site-ball-voltage>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</site-ball-voltage>
+	
+		<total-load-current>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</total-load-current>
+		
+		<load-current-1>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</load-current-1>
+		
+		<load-current-2>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</load-current-2>
+		
+		<load-current-3>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</load-current-3>
+		
+		<load-current-4>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</load-current-4>
+		
+		<load-current-5>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</load-current-5>
+		
+		<load-current-6>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</load-current-6>
+		
+		<mains-voltage-r>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</mains-voltage-r>
+		
+		<mains-voltage-y>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</mains-voltage-y>
+		
+		<mains-voltage-b>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</mains-voltage-b>
+		
+		<mains-current-r>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</mains-current-r>
+		
+		<mains-current-y>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</mains-current-y>
+		
+		<mains-current-b>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</mains-current-b>
+		
+		<mains-frequency>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</mains-frequency>
+		
+		<gen-voltage-r>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</gen-voltage-r>
+		
+		<gen-voltage-y>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</gen-voltage-y>
+		
+		<gen-volatge-b>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</gen-volatge-b>
+		
+		<gen-current-r>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</gen-current-r>
+		
+		<gen-current-y>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</gen-current-y>
+		
+		<gen-current-b>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</gen-current-b>
+		
+		<gen-frequency>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</gen-frequency>
+		
+		<gen-power>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</gen-power>
+		
+		<svr1-voltage>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</svr1-voltage>
+		
+		<svr1-current>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</svr1-current>
+		
+		<reserve-for-future>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</reserve-for-future>
+		
+		<soc>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</soc>
+		
+		<room-temp>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</room-temp>
+		
+		<battery-temp>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</battery-temp>
+		
+		<fuel-percent>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</fuel-percent>
+		
+		<gen-battery-voltage>
+			<data-type>UNSIGNED INTEGER</data-type>
+			<size>2</size>
+		</gen-battery-voltage>
+		
+	</Measurement>
+	
+	<run-hours>
+	
+		<mains-run-hours>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</mains-run-hours>
+		
+		<dg-run-hours>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</dg-run-hours>
+		
+		<dg-run-auto-run-hours>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</dg-run-auto-run-hours>
+		
+		<dg-run-manual-run-hours>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</dg-run-manual-run-hours>
+		
+		<battery-run-hours>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</battery-run-hours>
+		
+		<solar-run-hours>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</solar-run-hours>
+		
+		<wind-run-hours>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</wind-run-hours>
+		
+		<battery-charge-cycle-count>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</battery-charge-cycle-count>
+		
+		<reserve-for-future>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</reserve-for-future>
+		
+	</run-hours>
+	
+	<energy>
+		
+		<rectifier-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</rectifier-energy>
+			
+		<ip-mains-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</ip-mains-energy>
+		
+		<dg-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</dg-energy>		
+		
+		<battery-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</battery-energy>
+		
+		<solar-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</solar-energy>
+		
+		<wind-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</wind-energy>
+		
+		<load-1-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</load-1-energy>
+		
+		<load-2-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</load-2-energy>
+		
+		<load-3-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</load-3-energy>
+		
+		<load-4-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</load-4-energy>
+		
+		<load-5-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</load-5-energy>
+		
+		<load-6-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</load-6-energy>
+		
+		<total-load-energy>
+			<data-type>FLOAT</data-type>
+			<size>4</size>
+		</total-load-energy>
+	</energy>
+	
+	<end-of-string>
+		<termination-of-string>
+			<data-type>INTEGER</data-type>
+			<size>1</size>
+		</termination-of-string>
+	</end-of-string>
+</Delta-Indus-Data>

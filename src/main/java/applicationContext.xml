@@ -9,8 +9,9 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">  
     
    <context:annotation-config />
-    <bean class="org.infozech.netty.NettySpring.cfg" /> 
- 
+   <bean class="org.infozech.netty.NettySpring.cfg" /> 
+   
   <context:component-scan base-package="org.infozech" />
-  <context:property-placeholder location="netty-server.properties" />
+ <context:property-placeholder location="netty-server.properties" />
+
 </beans>

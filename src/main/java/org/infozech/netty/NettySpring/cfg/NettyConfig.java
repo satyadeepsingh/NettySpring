@@ -1,6 +1,5 @@
 package org.infozech.netty.NettySpring.cfg;
 
-import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +9,7 @@ import java.util.Set;
 import org.infozech.netty.NettySpring.handler.NettyChildHandler;
 import org.infozech.netty.NettySpring.logger.DataLogWriter;
 import org.infozech.netty.NettySpring.model.BytesDao;
+import org.infozech.netty.sequencing.BinaryParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +18,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
@@ -31,7 +32,7 @@ import io.netty.handler.logging.LoggingHandler;
 
 
 @Configuration
-@ComponentScan("org.infozech.netty")
+@ComponentScan(basePackages = "org.infozech.netty")
 @PropertySource("netty-server.properties")
 public class NettyConfig {
 
@@ -83,9 +84,18 @@ public class NettyConfig {
 	@Value("${port10}")
 	private int port10;
 	
+	private List<ChannelFuture> futures; 
+	
+	private List<String> bytesList;
+	
 	@Autowired
 	@Qualifier("nettyChildHandler")
 	private NettyChildHandler nettyChildHandler;
+	
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
 	
 	
 	@SuppressWarnings("unchecked")
@@ -137,7 +147,7 @@ public class NettyConfig {
 	@Bean(name="tcpChannelFutures")
 	public List<ChannelFuture> tcpChannelFutures() throws InterruptedException {
 		
-		List<ChannelFuture> futures = new ArrayList<ChannelFuture>();
+		futures = new ArrayList<ChannelFuture>();
 		
 		futures.add(bootstrap().bind(port1));
 		futures.add(bootstrap().bind(port2));
@@ -168,4 +178,15 @@ public class NettyConfig {
 	public DataLogWriter getDataLogWriter(){
 		return new DataLogWriter();
 	}
+	
+	@Bean(name="byteToHexDecoder")
+	public ByteToHexDecoder getByteToHexDecoder(){
+		return new ByteToHexDecoder();
+	}
+	
+	/*@Bean(name="binaryParser")
+	public BinaryParser getBinaryParser(){
+		bytesList = getBytesDao().getByteList();
+		return new BinaryParser(bytesList);
+	}*/
 }

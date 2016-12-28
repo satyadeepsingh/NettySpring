@@ -1,6 +1,7 @@
 package org.infozech.netty.NettySpring.handler;
 
 import org.apache.log4j.Logger;
+import org.infozech.netty.NettySpring.cfg.ByteToHexDecoder;
 import org.infozech.netty.NettySpring.model.BytesDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,6 +24,25 @@ public class NettyChildHandler extends ChannelInitializer<SocketChannel> {
 	@Qualifier("bytesDao")
 	BytesDao bytesDao;
 	
+	
+	@Autowired
+	@Qualifier("byteToHexDecoder")
+	ByteToHexDecoder byteToHexDecoder;
+	
+	public BytesDao getBytesDao() {
+		return bytesDao;
+	}
+
+	public void setBytesDao(BytesDao bytesDao) {
+		this.bytesDao = bytesDao;
+	}
+
+	
+
+	public static Logger getLogger() {
+		return logger;
+	}
+
 	public NettyServerHandler getNettyServerHandler() {
 		return nettyServerHandler;
 	}
@@ -40,7 +60,8 @@ public class NettyChildHandler extends ChannelInitializer<SocketChannel> {
 		System.out.println("New Client connected:" + ch.localAddress());
 		bytesDao.setSocketAddress(ch.localAddress());
 		logger.info("Connected to client" + ch.localAddress());
-		p.addLast(nettyServerHandler);
+	//	p.addLast(byteToHexDecoder);
+		p.addLast( nettyServerHandler);
 		
 	}
 
